@@ -37,3 +37,17 @@ async def show_messages():
     del bd[0]
     return bd
 
+
+from models.models import UserCreate
+users = []
+
+@app.post("/create_user")
+async def create_user(new_user: UserCreate):
+    users.append(new_user)
+    return new_user
+
+@app.get("/show_user")
+async def show_user():
+    return {"users": users}
+
+
