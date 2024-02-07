@@ -81,5 +81,13 @@ async def get_headers(request: Request) -> dict:
         "Accept-Language": request.headers["accept-language"]
     }
 
+@app.get("/headers3")
+async def get_headers(request: Request) -> dict:
+    check_headers(request.headers)
+    return {
+        "User-Agent" : request.headers["user-agent"],
+        "Accept-Language": request.headers["accept-language"]
+    }
+
 
 
